@@ -2,6 +2,7 @@ import React from 'react';
 import Logo from './assets/logo.png';
 import TrackingForm from "./components/TrackingForm";
 import RouteMap from "./components/RouteMap";
+import Button from "./components/Button";
 
 function App() {
     return (
@@ -11,6 +12,7 @@ function App() {
                     <h1 className='text-2xl font-medium pt-9 pb-6 px-4 sm:px-7'>Route report</h1>
                     <TrackingForm />
                     <RouteMap />
+                    <Button />
                 </div>
             </div>
     );
