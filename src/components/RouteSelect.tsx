@@ -27,6 +27,7 @@ const RouteSelect = ({
                 value={selectedRoute}
                 onChange={(e) => setSelectedRoute(parseInt(e.target.value))}
             >
+                <option value='0'>All routes</option>
                 {routes.map((route) => (
                     <option key={route.route_id} value={route.route_id}>
                         from {formatDate(route.start.time)} to {formatDate(route.end.time)}
