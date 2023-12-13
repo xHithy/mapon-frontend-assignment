@@ -1,10 +1,11 @@
-import React, { Fragment, useState } from 'react';
-import { GoogleMap, Marker, Polyline, useJsApiLoader } from '@react-google-maps/api';
+import React, { useState } from 'react';
+import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 import { mapCenter, mapOptions } from "../config/mapConfig";
-import CustomMarker from '../assets/marker.png';
 import RouteSelect from "./RouteSelect";
-import RouteStats from "./RouteStats";
+import SingleRouteStats from "./SingleRouteStats";
 import { SingleRouteModel } from "../models/RouteModel";
+import SingleRoute from "./SingleRoute";
+import MultipleRouteStats from "./MultipleRouteStats";
 
 interface RouteMapProps {
 	routes: SingleRouteModel[];
@@ -41,36 +42,23 @@ const RouteMap = ({
 				zoom={10}
 				options={mapOptions}
 			>
-				{selectedRouteData && (
-					<Fragment>
-						<Marker
-							position={{ lat: selectedRouteData.start.lat, lng: selectedRouteData.start.lng }}
-							icon={{
-								url: CustomMarker,
-								scaledSize: new window.google.maps.Size(32, 34)
-							}}
-						/>
-						<Marker
-							position={{ lat: selectedRouteData.end.lat, lng: selectedRouteData.end.lng }}
-							icon={{
-								url: CustomMarker,
-								scaledSize: new window.google.maps.Size(32, 34)
-							}}
-						/>
-						<Polyline
-							path={selectedRouteData.decoded_route.points.map((point: { lat: any; lng: any; }) => ({
-								lat: point.lat,
-								lng: point.lng
-							}))}
-							options={{ strokeColor: '#3BAFFA', strokeWeight: 4 }}
-						/>
-					</Fragment>
+				{selectedRouteData && selectedRoute !== 0 ? (
+					<SingleRoute route={selectedRouteData} />
+				) : (
+					routes.map((route, index) => (
+						<SingleRoute key={index} route={route} />
+					))
 				)}
 			</GoogleMap>
-			{ selectedRouteData &&
-				<RouteStats
+
+			{selectedRouteData &&
+				<SingleRouteStats
 					selectedRouteData={selectedRouteData}
 				/>
+			}
+
+			{ selectedRoute === 0 &&
+				<MultipleRouteStats routes={routes}/>
 			}
 		</>
 		);
