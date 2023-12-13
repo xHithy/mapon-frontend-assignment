@@ -2,12 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@font-face {
+  font-family: 'MuseoSans';
+  src: url('fonts/MuseoSans_300.otf') format('otf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  src: url('./fonts/MuseoSans_500.otf') format('otf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'MuseoSans';
+  src: url('./fonts/MuseoSans_700.otf') format('otf');
+  font-weight: 700;
+  font-style: normal;
+}
 
 * {
+  color:#384045;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'MuseoSans', sans-serif;
 }
 
 /*
@@ -19,10 +39,10 @@
 
 .gm-style-cc {
   /* Removes keyboard shortcuts etc (buttons on the bottom right corner of google maps) */
-  display:none !important;
+  display: none !important;
 }
 
 img[alt="Google"] {
   /* Removes Google logo on bottom left corner of google maps */
-  display:none !important;
+  display: none !important;
 }
