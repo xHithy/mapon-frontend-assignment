@@ -1,6 +1,4 @@
 # Internship front-end assignment
-
-## About the assignment
 The assignments main goal was to create a SPA with a map that displays a selected vehicles routes within a selected period.
 
 ## Built with
