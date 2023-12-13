@@ -33,7 +33,7 @@ const TrackingForm = ({
                     className='w-1/2'
                     htmlFor='vehicle'
                 >
-                    Vehicle number<sup className='text-red-500'>*</sup>
+                    Vehicle number<sup className='text-red-500 text-[1.5rem] top-[0.2rem]'>*</sup>
                 </label>
                 <div className='flex flex-col w-full'>
                     <select
