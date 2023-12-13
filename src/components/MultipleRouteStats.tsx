@@ -1,7 +1,7 @@
 import React from 'react';
 import { SingleRouteModel } from "../models/RouteModel";
 import { calculateTotalDrivingTime } from "../functions/calculateTotalDrivingTime";
-import {calculateTotalDistance} from "../functions/calculateTotalDistance";
+import { calculateTotalDistance } from "../functions/calculateTotalDistance";
 
 interface RouteStatsProps {
     routes: SingleRouteModel[];
